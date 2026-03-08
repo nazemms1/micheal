@@ -1,0 +1,13 @@
+.expCard {
+  padding: 1.6rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.expCard:not([data-current="true"]):hover {
+  border-color: rgba(9, 79, 183, 0.3) !important;
+  background: rgba(9, 79, 183, 0.05) !important;
+}

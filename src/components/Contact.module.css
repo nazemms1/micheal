@@ -1,0 +1,97 @@
+.socialIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.socialIcon:hover {
+  background: color-mix(in srgb, var(--icon-color) 13%, transparent);
+  border-color: color-mix(in srgb, var(--icon-color) 40%, transparent);
+  color: var(--icon-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--icon-color) 20%, transparent);
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.contactCard:hover {
+  border-color: rgba(9, 79, 183, 0.4);
+  background: rgba(9, 79, 183, 0.07);
+  transform: translateX(5px);
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 0.88rem;
+  background: linear-gradient(135deg, rgb(9, 79, 183), rgb(30, 100, 215));
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 20px rgba(9, 79, 183, 0.4);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(9, 79, 183, 0.6);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submitBtnSent {
+  width: 100%;
+  padding: 0.88rem;
+  background: rgba(79, 183, 9, 0.15);
+  color: rgb(100, 220, 100);
+  border: 1px solid rgba(79, 183, 9, 0.3);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+}
+
+.footerLink {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerLink:hover {
+  color: rgb(9, 79, 183);
+}
+
+.inputFocus:focus {
+  border-color: rgba(9, 79, 183, 0.6) !important;
+  background: rgba(9, 79, 183, 0.05) !important;
+  box-shadow: 0 0 0 3px rgba(9, 79, 183, 0.1) !important;
+}
