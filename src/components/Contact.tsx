@@ -1,41 +1,16 @@
-import { useState } from "react";
 import {
   Box,
   Stack,
   Group,
   Text,
   Title,
-  TextInput,
-  Textarea,
-  SimpleGrid,
   Anchor,
 } from "@mantine/core";
 import { useReveal } from "../hooks/useReveal";
 import classes from "./Contact.module.css";
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
   const { ref, visible } = useReveal();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    const mailtoLink = `mailto:micheal1namma@gmail.com?subject=${encodeURIComponent(form.subject || "Portfolio Contact")}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
-    window.location.href = mailtoLink;
-    setTimeout(() => {
-      setSending(false);
-      setSent(true);
-      setForm({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setSent(false), 4000);
-    }, 600);
-  };
 
   const socialLinks = [
     {
@@ -224,7 +199,7 @@ export default function Contact() {
             </Text>
           </Box>
 
-          <SimpleGrid cols={{ base: 1, md: 2 }} spacing="3rem">
+          <Box style={{ maxWidth: '560px', margin: '0 auto' }}>
             <Box
               style={{
                 opacity: visible ? 1 : 0,
@@ -357,111 +332,7 @@ export default function Contact() {
               </Box>
             </Box>
 
-            <Box
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateX(0)" : "translateX(30px)",
-                transition: "all 0.8s ease 0.35s",
-              }}
-            >
-              <Box
-                style={{
-                  padding: "2rem",
-                  background: "rgba(255,255,255,0.025)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  borderRadius: "18px",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <Box
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: "1px",
-                    background:
-                      "linear-gradient(90deg, transparent, rgba(9,79,183,0.5), transparent)",
-                  }}
-                />
-                <Text
-                  style={{
-                    color: "#fff",
-                    fontWeight: 700,
-                    fontSize: "1.1rem",
-                    marginBottom: "1.75rem",
-                  }}
-                >
-                  Send a Message
-                </Text>
-
-                <form onSubmit={handleSubmit}>
-                  <SimpleGrid cols={2} spacing="1rem" mb="1rem">
-                    <TextInput
-                      label="Your Name"
-                      type="text"
-                      placeholder="John Doe"
-                      value={form.name}
-                      onChange={(e) =>
-                        setForm({ ...form, name: e.target.value })
-                      }
-                      required
-                      classNames={{ input: classes.inputFocus }}
-                    />
-                    <TextInput
-                      label="Email Address"
-                      type="email"
-                      placeholder="john@example.com"
-                      value={form.email}
-                      onChange={(e) =>
-                        setForm({ ...form, email: e.target.value })
-                      }
-                      required
-                      classNames={{ input: classes.inputFocus }}
-                    />
-                  </SimpleGrid>
-
-                  <TextInput
-                    label="Subject"
-                    type="text"
-                    placeholder="Project inquiry, collaboration..."
-                    value={form.subject}
-                    onChange={(e) =>
-                      setForm({ ...form, subject: e.target.value })
-                    }
-                    mb="1rem"
-                    classNames={{ input: classes.inputFocus }}
-                  />
-
-                  <Textarea
-                    label="Message"
-                    rows={5}
-                    placeholder="Tell me about your project or opportunity..."
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm({ ...form, message: e.target.value })
-                    }
-                    required
-                    mb="1.5rem"
-                    classNames={{ input: classes.inputFocus }}
-                  />
-
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className={sent ? classes.submitBtnSent : classes.submitBtn}
-                  >
-                    {sending
-                      ? "Opening email client..."
-                      : sent
-                        ? "✓ Message ready in email client"
-                        : "Send Message →"}
-                  </button>
-                </form>
-              </Box>
-            </Box>
-          </SimpleGrid>
+          </Box>
         </Box>
       </Box>
 

@@ -8,53 +8,28 @@ const skillGroups = [
     icon: '⚙️',
     color: 'rgba(9,79,183,0.15)',
     borderColor: 'rgba(9,79,183,0.3)',
-    skills: [
-      { name: 'PHP', level: 95 },
-      { name: 'Laravel', level: 95 },
-      { name: 'Python', level: 75 },
-      { name: 'Flask', level: 70 },
-      { name: 'REST APIs', level: 95 },
-      { name: 'Magento 2', level: 75 },
-    ],
+    skills: ['PHP', 'Laravel', 'Python', 'Flask', 'REST APIs', 'Magento 2'],
   },
   {
     category: 'Database',
     icon: '🗄️',
     color: 'rgba(9,140,183,0.1)',
     borderColor: 'rgba(9,140,183,0.25)',
-    skills: [
-      { name: 'MySQL', level: 92 },
-      { name: 'SQL', level: 90 },
-      { name: 'Schema Design', level: 88 },
-      { name: 'Query Optimization', level: 84 },
-      { name: 'Migrations', level: 92 },
-    ],
+    skills: ['MySQL', 'SQL', 'Schema Design', 'Query Optimization', 'Migrations'],
   },
   {
     category: 'Frontend',
     icon: '🎨',
     color: 'rgba(79,183,9,0.08)',
     borderColor: 'rgba(79,183,9,0.2)',
-    skills: [
-      { name: 'JavaScript', level: 78 },
-      { name: 'jQuery', level: 80 },
-      { name: 'Vue.js', level: 62 },
-      { name: 'HTML & CSS', level: 82 },
-      { name: 'Bootstrap', level: 80 },
-    ],
+    skills: ['JavaScript', 'jQuery', 'Vue.js', 'HTML & CSS', 'Bootstrap'],
   },
   {
     category: 'DevOps & Tools',
     icon: '🚀',
     color: 'rgba(183,9,140,0.08)',
     borderColor: 'rgba(183,9,140,0.2)',
-    skills: [
-      { name: 'Git', level: 93 },
-      { name: 'GitLab CI/CD', level: 82 },
-      { name: 'JIRA', level: 87 },
-      { name: 'Agile / Scrum', level: 92 },
-      { name: 'Linux', level: 72 },
-    ],
+    skills: ['Git', 'GitLab CI/CD', 'JIRA', 'Agile / Scrum', 'Linux'],
   },
 ]
 
@@ -70,26 +45,6 @@ const techBadges = [
   { name: 'JIRA', hot: false }, { name: 'Linux', hot: false }, { name: 'HTML/CSS', hot: false },
 ]
 
-function SkillBar({ name, level, visible, delay }: { name: string; level: number; visible: boolean; delay: number }) {
-  return (
-    <Box>
-      <Group justify="space-between" mb="0.4rem">
-        <Text style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.82rem', fontWeight: 500 }}>{name}</Text>
-        <Text style={{ color: 'rgb(9,79,183)', fontSize: '0.72rem', fontWeight: 700 }}>{level}%</Text>
-      </Group>
-      <Box style={{ height: '3px', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
-        <Box style={{
-          height: '100%',
-          width: visible ? `${level}%` : '0%',
-          background: level >= 90 ? 'linear-gradient(90deg, rgb(9,79,183), rgb(100,180,255))' : 'linear-gradient(90deg, rgba(9,79,183,0.7), rgba(100,180,255,0.7))',
-          borderRadius: '2px',
-          transition: `width 1.2s ease ${delay}s`,
-          boxShadow: level >= 90 ? '0 0 8px rgba(9,79,183,0.6)' : 'none',
-        }} />
-      </Box>
-    </Box>
-  )
-}
 
 export default function Skills() {
   const { ref, visible } = useReveal()
@@ -127,9 +82,9 @@ export default function Skills() {
                 <Box style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', border: '1px solid rgba(255,255,255,0.06)' }}>{group.icon}</Box>
                 <Title order={3} style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.3px' }}>{group.category}</Title>
               </Group>
-              <Box style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {group.skills.map((skill, si) => (
-                  <SkillBar key={skill.name} name={skill.name} level={skill.level} visible={visible} delay={gi * 0.1 + si * 0.08} />
+              <Box style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {group.skills.map((skill) => (
+                  <Box component="span" key={skill} style={{ padding: '0.3rem 0.75rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px', color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem', fontWeight: 500 }}>{skill}</Box>
                 ))}
               </Box>
             </Box>

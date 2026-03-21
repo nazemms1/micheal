@@ -135,19 +135,6 @@ const projects: Project[] = [
       { label: 'Website', href: 'https://stgate.net/', type: 'web' },
     ],
   },
-  {
-    name: 'Cotobuy',
-    description: 'Platform for international schools and summer camps facilitating academic year booking and safe used book resale.',
-    longDescription: 'The Cotobuy platform provides special options from international schools and summer camps, facilitating the process of booking a customer seat for the new academic year and getting books. It enables you to resell your used books easily and safely.',
-    highlights: ['International School & Summer Camp Booking', 'Used Book Resale Marketplace', 'Academic Year Seat Reservation'],
-    tags: ['Laravel', 'PHP', 'MySQL', 'Blade'],
-    category: 'EdTech',
-    icon: '📖',
-    featured: false,
-    links: [
-      { label: 'Website', href: 'https://cotobuy.net/', type: 'web' },
-    ],
-  },
 ]
 
 const categories = ['All', 'EdTech', 'E-Commerce', 'Enterprise', 'Transport', 'Mobile & Web', 'HealthTech']
