@@ -221,6 +221,13 @@ export default function Hero() {
             <a href="mailto:micheal1namma@gmail.com" className={classes.ghostBtn}>
               Contact Me
             </a>
+            <a
+              href="/files/Micheal Namma.pdf"
+              download="Micheal Namma CV.pdf"
+              className={classes.ghostBtn}
+            >
+              Download CV ↓
+            </a>
           </Group>
 
            <Box style={{
