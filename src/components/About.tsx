@@ -51,7 +51,7 @@ export default function About() {
                 border: '1px dashed rgba(9,79,183,0.15)',
                 animation: 'spinR 18s linear infinite',
               }} />
-            </Box>
+            </Box>  
 
             <Title order={3} style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem', letterSpacing: '-0.5px' }}>Micheal Namma</Title>
             <Text style={{ color: 'rgb(9,79,183)', fontWeight: 600, marginBottom: '1.5rem', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Senior Backend Developer</Text>
